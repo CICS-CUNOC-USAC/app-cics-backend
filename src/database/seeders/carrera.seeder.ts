@@ -23,5 +23,7 @@ export class CarreraSeeder implements Seeder {
     return this.carreraRepository.save(carreras);
   }
 
-  async drop(): Promise<any> {}
+  async drop(): Promise<any> {
+    return this.carreraRepository.delete({});
+  }
 }
