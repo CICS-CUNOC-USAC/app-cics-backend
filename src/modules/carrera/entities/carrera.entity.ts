@@ -1,10 +1,13 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 @Entity()
 export class Carrera {
-  @PrimaryColumn()
+  @PrimaryColumn({type: 'int', nullable: false})
+  @ApiProperty()
   codigo: number;
 
-  @Column()
+  @Column({type: 'string', nullable: false})
+  @ApiProperty()
   nombre: string;
 }
