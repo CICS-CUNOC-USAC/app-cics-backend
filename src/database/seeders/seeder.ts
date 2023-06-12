@@ -5,6 +5,8 @@ import { CarreraSeeder } from './carrera.seeder';
 import { Carrera } from 'src/modules/carrera/entities/carrera.entity';
 import { CursoSeeder } from './curso.seeder';
 import { Curso } from 'src/modules/curso/entities/curso.entity';
+import { CarreraCurso } from 'src/modules/carrera_curso/entities/carrera_curso.entity';
+import { CarreraCursoSeeder } from './carrera_curso.seeder';
 
 seeder({
   imports: [
@@ -25,5 +27,6 @@ seeder({
     }),
     TypeOrmModule.forFeature([Carrera]),
     TypeOrmModule.forFeature([Curso]),
+    TypeOrmModule.forFeature([CarreraCurso]),
   ],
-}).run([CarreraSeeder, CursoSeeder]);
+}).run([CarreraSeeder, CursoSeeder, CarreraCursoSeeder]);

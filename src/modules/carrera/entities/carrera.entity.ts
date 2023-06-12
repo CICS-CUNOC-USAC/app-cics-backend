@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { CarreraCurso } from 'src/modules/carrera_curso/entities/carrera_curso.entity';
+import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 
 @Entity()
 export class Carrera {
@@ -10,4 +11,8 @@ export class Carrera {
   @Column()
   @ApiProperty()
   nombre: string;
+
+  @OneToMany(() => CarreraCurso, (carrera_curso) => carrera_curso.codigo_carrera)
+  @ApiProperty()
+  codigo_carrera: number[];
 }
