@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { CarreraService } from './carrera.service';
 import { CreateCarreraDto } from './dto/create-carrera.dto';
 import { UpdateCarreraDto } from './dto/update-carrera.dto';
+import { Carrera } from './entities/carrera.entity';
 
 @Controller('carrera')
 export class CarreraController {
@@ -17,9 +18,9 @@ export class CarreraController {
     return this.carreraService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.carreraService.findOne(+id);
+  @Get(':codigo')
+  findOne(@Param('codigo') codigo: string) {
+    return this.carreraService.findOne(+codigo);
   }
 
   @Patch(':id')

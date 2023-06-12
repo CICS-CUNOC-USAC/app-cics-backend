@@ -1,10 +1,10 @@
-import { Entity, Column, PrimaryColumn } from "typeorm";
+import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 @Entity()
 export class Carrera {
   @PrimaryColumn()
-  codigo: number
+  codigo: number;
 
   @Column()
-  nombre: string
+  nombre: string;
 }
