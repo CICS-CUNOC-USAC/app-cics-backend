@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CarreraModule } from './modules/carrera/carrera.module';
-import { Carrera } from './modules/carrera/entities/carrera.entity';
 
 @Module({
   imports: [
@@ -19,7 +18,7 @@ import { Carrera } from './modules/carrera/entities/carrera.entity';
         password: configService.get('DB_PASSWORD'),
         database: configService.get('DB_NAME'),
         autoLoadEntities: true,
-        synchronize: false,
+        synchronize: true,
       }),
       inject: [ConfigService],
     }),
