@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CarreraModule } from './modules/carrera/carrera.module';
+import { CursoModule } from './modules/curso/curso.module';
 
 @Module({
   imports: [
@@ -22,7 +23,8 @@ import { CarreraModule } from './modules/carrera/carrera.module';
       }),
       inject: [ConfigService],
     }),
-    CarreraModule
+    CarreraModule,
+    CursoModule
   ],
   controllers: [AppController],
   providers: [AppService],

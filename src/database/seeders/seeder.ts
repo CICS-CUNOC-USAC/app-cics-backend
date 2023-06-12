@@ -3,6 +3,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { seeder } from 'nestjs-seeder';
 import { CarreraSeeder } from './carrera.seeder';
 import { Carrera } from 'src/modules/carrera/entities/carrera.entity';
+import { CursoSeeder } from './curso.seeder';
+import { Curso } from 'src/modules/curso/entities/curso.entity';
 
 seeder({
   imports: [
@@ -22,5 +24,6 @@ seeder({
       inject: [ConfigService],
     }),
     TypeOrmModule.forFeature([Carrera]),
+    TypeOrmModule.forFeature([Curso]),
   ],
-}).run([CarreraSeeder]);
+}).run([CarreraSeeder, CursoSeeder]);
