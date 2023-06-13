@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CarreraModule } from './modules/carrera/carrera.module';
 import { CursoModule } from './modules/curso/curso.module';
 import { CarreraCursoModule } from './modules/carrera_curso/carrera_curso.module';
+import { CarreraCursoPrerequisitoModule } from './modules/carrera_curso_prerequisito/carrera_curso_prerequisito.module';
 
 @Module({
   imports: [
@@ -21,12 +22,14 @@ import { CarreraCursoModule } from './modules/carrera_curso/carrera_curso.module
         database: configService.get('DB_NAME'),
         autoLoadEntities: true,
         synchronize: true,
+        logging: true
       }),
       inject: [ConfigService],
     }),
     CarreraModule,
     CursoModule,
-    CarreraCursoModule
+    CarreraCursoModule,
+    CarreraCursoPrerequisitoModule
   ],
   controllers: [AppController],
   providers: [AppService],

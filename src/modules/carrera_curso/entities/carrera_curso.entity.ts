@@ -1,7 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Carrera } from 'src/modules/carrera/entities/carrera.entity';
+import { CarreraCursoPrerequisito } from 'src/modules/carrera_curso_prerequisito/entities/carrera_curso_prerequisito.entity';
 import { Curso } from 'src/modules/curso/entities/curso.entity';
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryColumn } from 'typeorm';
 
 @Entity()
 export class CarreraCurso {
@@ -28,4 +29,8 @@ export class CarreraCurso {
   @Column()
   @ApiProperty()
   obligatoriedad: boolean;
+
+  @OneToMany(() => CarreraCursoPrerequisito, (carrera_curso_prerequisito) => carrera_curso_prerequisito.codigo_carrera_codigo_curso)
+  @ApiProperty()
+  prerequisito_carrera: any[];
 }
