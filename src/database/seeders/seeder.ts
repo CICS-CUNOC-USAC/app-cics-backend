@@ -11,6 +11,8 @@ import { CarreraCursoPrerequisito } from 'src/modules/carrera_curso_prerequisito
 import { CarreraCursoPrerequisitoSeeder } from './carrera_curso_prerequisito.seeder';
 import { PrerequisitoCurso } from 'src/modules/prerequisito_curso/entities/prerequisito_curso.entity';
 import { PrerequisitoCursoSeeder } from './prerequisito_curso.seeder';
+import { PrerequisitoCredito } from 'src/modules/prerequisito_credito/entities/prerequisito_credito.entity';
+import { PrerequisitoCreditoSeeder } from './prerequisito_credito.seeder';
 
 seeder({
   imports: [
@@ -34,6 +36,7 @@ seeder({
     TypeOrmModule.forFeature([CarreraCurso]),
     TypeOrmModule.forFeature([CarreraCursoPrerequisito]),
     TypeOrmModule.forFeature([PrerequisitoCurso]),
+    TypeOrmModule.forFeature([PrerequisitoCredito]),
   ],
 }).run([
   CarreraSeeder,
@@ -41,4 +44,5 @@ seeder({
   CarreraCursoSeeder,
   CarreraCursoPrerequisitoSeeder,
   PrerequisitoCursoSeeder,
+  PrerequisitoCreditoSeeder,
 ]);

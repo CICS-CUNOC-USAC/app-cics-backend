@@ -6,7 +6,7 @@ import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryColumn} from 't
 @Entity()
 export class PrerequisitoCredito {
   @PrimaryColumn()
-  @OneToOne(() => CarreraCursoPrerequisito)
+  @OneToOne(() => CarreraCursoPrerequisito, {onDelete: 'CASCADE', onUpdate: 'CASCADE'})
   @JoinColumn({name: 'id_carrera_curso_prerequisito', referencedColumnName: 'id'})
   @ApiProperty()
   id_carrera_curso_prerequisito: number;
