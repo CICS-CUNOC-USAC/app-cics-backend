@@ -7,6 +7,8 @@ import { CarreraModule } from './modules/carrera/carrera.module';
 import { CursoModule } from './modules/curso/curso.module';
 import { CarreraCursoModule } from './modules/carrera_curso/carrera_curso.module';
 import { CarreraCursoPrerequisitoModule } from './modules/carrera_curso_prerequisito/carrera_curso_prerequisito.module';
+import { PrerequisitoCursoModule } from './modules/prerequisito_curso/prerequisito_curso.module';
+import { PrerequisitoCreditoModule } from './modules/prerequisito_credito/prerequisito_credito.module';
 
 @Module({
   imports: [
@@ -29,7 +31,9 @@ import { CarreraCursoPrerequisitoModule } from './modules/carrera_curso_prerequi
     CarreraModule,
     CursoModule,
     CarreraCursoModule,
-    CarreraCursoPrerequisitoModule
+    CarreraCursoPrerequisitoModule,
+    PrerequisitoCursoModule,
+    PrerequisitoCreditoModule
   ],
   controllers: [AppController],
   providers: [AppService],
