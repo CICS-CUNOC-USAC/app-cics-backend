@@ -14,7 +14,15 @@ export class CarreraCursoPrerequisito {
   @ApiProperty()
   id: number;
 
-  @ManyToOne(() => CarreraCurso)
+  @Column()
+  @ApiProperty()
+  codigo_carrera: number;
+
+  @Column()
+  @ApiProperty()
+  codigo_curso: string;
+
+  @ManyToOne(() => CarreraCurso, {onDelete: 'CASCADE', onUpdate: 'CASCADE'})
   @JoinColumn([
     {
       name: 'codigo_carrera',

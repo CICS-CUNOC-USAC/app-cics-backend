@@ -6,13 +6,13 @@ import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryColumn } from 
 
 @Entity()
 export class CarreraCurso {
-  @ManyToOne(() => Carrera)
+  @ManyToOne(() => Carrera, {onDelete: 'CASCADE', onUpdate: 'CASCADE'})
   @JoinColumn({name: "codigo_carrera"})
   @PrimaryColumn()
   @ApiProperty()
   codigo_carrera: number;
 
-  @ManyToOne(() => Curso)
+  @ManyToOne(() => Curso, {onDelete: 'CASCADE', onUpdate: 'CASCADE'})
   @JoinColumn({name: "codigo_curso"})
   @PrimaryColumn()
   @ApiProperty()
