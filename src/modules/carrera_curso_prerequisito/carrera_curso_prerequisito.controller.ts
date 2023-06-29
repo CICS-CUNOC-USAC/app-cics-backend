@@ -22,6 +22,11 @@ export class CarreraCursoPrerequisitoController {
     return this.carreraCursoPrerequisitoService.findOne(+id);
   }
 
+  @Get(':carrera/:curso')
+  prerequisitosCurso(@Param('carrera') carrera: string, @Param('curso') curso: string) {
+    return this.carreraCursoPrerequisitoService.prerequisitosCurso(+carrera, curso);
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateCarreraCursoPrerequisitoDto: UpdateCarreraCursoPrerequisitoDto) {
     return this.carreraCursoPrerequisitoService.update(+id, updateCarreraCursoPrerequisitoDto);

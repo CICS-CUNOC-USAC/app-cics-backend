@@ -12,7 +12,6 @@ export class CarreraCurso {
   @ApiProperty()
   codigo_carrera: number;
 
-  @ManyToOne(() => Curso, {onDelete: 'CASCADE', onUpdate: 'CASCADE'})
   @JoinColumn({name: "codigo_curso"})
   @PrimaryColumn()
   @ApiProperty()
@@ -29,6 +28,11 @@ export class CarreraCurso {
   @Column()
   @ApiProperty()
   obligatoriedad: boolean;
+
+  @ManyToOne(() => Curso, {onDelete: 'CASCADE', onUpdate: 'CASCADE'})
+  @JoinColumn({name: "codigo_curso"})
+  @ApiProperty()
+  curso: any[];
 
   @OneToMany(() => CarreraCursoPrerequisito, (carrera_curso_prerequisito) => carrera_curso_prerequisito.codigo_carrera_codigo_curso)
   @ApiProperty()
