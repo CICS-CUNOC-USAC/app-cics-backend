@@ -1,9 +1,11 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseInterceptors } from '@nestjs/common';
 import { CarreraCursoPrerequisitoService } from './carrera_curso_prerequisito.service';
 import { CreateCarreraCursoPrerequisitoDto } from './dto/create-carrera_curso_prerequisito.dto';
 import { UpdateCarreraCursoPrerequisitoDto } from './dto/update-carrera_curso_prerequisito.dto';
+import { ResponseInterceptor } from 'src/interceptors/response/response.interceptor';
 
 @Controller('carrera-curso-prerequisito')
+@UseInterceptors(new ResponseInterceptor('Success', 'Ha ocurrido un error'))
 export class CarreraCursoPrerequisitoController {
   constructor(private readonly carreraCursoPrerequisitoService: CarreraCursoPrerequisitoService) {}
 
